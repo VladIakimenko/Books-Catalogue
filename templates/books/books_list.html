@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Каталог книг{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="header">
+          <div class="d-flex flex-column flex-md-row justify-content-between">
+            <h1><a href="/books">Каталог</a></h1>
+            {% if show_search %}
+            <form class="form-inline my-2 my-lg-0" method="GET">
+              <input class="form-control mr-sm-2" type="search" name="search" value="{{ search_term }}" placeholder="Поиск" aria-label="Search">
+              <button class="btn btn-primary" type="submit">Поиск</button>
+            </form>
+            {% endif %}
+          </div>
+        </div>
+        <div class="row">
+            {% for book in books %}
+            <div class="book col-md-4">
+                <h4>{{book.name}}</h4>
+                <p>Автор: {{ book.author }}</p>
+                <p>Издательство: {{ book.publisher }}</p>
+                <p>Год публикации: <a href="{% url 'pub_year' pub_year=book.pub_year %}">{{ book.pub_year }}</a></p>
+                <br>
+            </div>
+            {% endfor %}
+        </div>
+        {% if prev_date %}
+        <a href="{% url 'pub_year' prev_date %}"> < {{ prev_date }}</a>
+        {% endif %}
+        &emsp;
+        {% if next_date %}
+        <a href="{% url 'pub_year' next_date %}">{{ next_date }} > </a>
+        {% endif %}
+    </div>
+
+
+{% endblock %}
