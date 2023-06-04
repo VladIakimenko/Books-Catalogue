@@ -1,4 +1,4 @@
-# Book Catalog
+# Books Catalog
 
 This is a minimalist web application designed for browsing and searching books. It was created as a Django templates alternative to the original ["so-books.ru" project](https://github.com/VladIakimenko/so-books.ru), disigned to showcase a vast private book library, and built with Django Rest Framework for the backend + node.js application for the frontend.   
 This project on the opposite harnesses the power of Django's built-in capabilities and is accompanied by the features of Bootstrap. This provides a clean and intuitive user interface, optimized for both mobile and desktop use.  
